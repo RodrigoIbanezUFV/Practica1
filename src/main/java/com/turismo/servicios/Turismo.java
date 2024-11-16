@@ -1,6 +1,6 @@
 package com.turismo.servicios;
 
-import com.turismo.model.TurismoRegistro;
+import com.turismo.model.TurismoRegistro; /** Trae el contenido de la clase principal*/
 
 import java.util.List;
 import java.util.stream.Collectors;
