@@ -27,6 +27,12 @@ public class LectorCSV {
             csvReader.readNext(); // Salta la primera fila (asumiendo que son encabezados).
 
             while ((fila = csvReader.readNext()) != null) {
+                // Validar que la fila tiene suficientes columnas (al menos 6 columnas)
+                if (fila.length < 6) {
+                    System.out.println("Fila inválida (columnas insuficientes): " + String.join(",", fila));
+                    continue; // Saltar filas incompletas
+                }
+
                 // Manejar valores nulos o vacíos
                 String origenComunidad = fila[0].isEmpty() ? null : fila[0];
                 String origenProvincia = fila[1].isEmpty() ? null : fila[1];
