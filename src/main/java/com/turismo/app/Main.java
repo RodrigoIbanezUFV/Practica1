@@ -19,19 +19,19 @@ public class Main {
         // Leer registros desde el archivo CSV
         List<TurismoRegistro> registros = lector.leeCSV(rutaCSV);
 
-        // Solicitar al usuario el período a filtrar
+        // Solicitar al usuario la provincia de origen
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Introduce el período a buscar (formato yyyyMM): ");
-        String periodo = scanner.nextLine();
+        System.out.print("Introduce la provincia de origen: ");
+        String provincia = scanner.nextLine();
 
-        // Filtrar registros por período
-        List<TurismoRegistro> filtrados = servicio.filtrarPorPeriodo(registros, periodo);
+        // Filtrar registros por provincia de origen
+        List<TurismoRegistro> filtrados = servicio.filtrarPorProvinciaOrigen(registros, provincia, 100000);
 
         // Mostrar resultados
         if (filtrados.isEmpty()) {
-            System.out.println("No se encontraron registros para el período: " + periodo);
+            System.out.println("No se encontraron registros para la provincia de origen: " + provincia);
         } else {
-            System.out.println("Registros encontrados para el período " + periodo + ":");
+            System.out.println("Registros encontrados para la provincia de origen " + provincia + ":");
             filtrados.forEach(System.out::println);
             System.out.println("Total de registros encontrados: " + filtrados.size());
         }
