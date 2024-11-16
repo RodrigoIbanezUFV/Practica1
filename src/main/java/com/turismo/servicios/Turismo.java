@@ -24,4 +24,10 @@ public class Turismo {
                 .filter(registro -> registro.getPeriodo().getPeriodo().equals(periodo))
                 .collect(Collectors.toList());
     }
+
+    public List<TurismoRegistro> filtrarPorProvinciaOrigen(List<TurismoRegistro> registros, String provincia, int totalMinimo) {
+        return registros.stream()
+                .filter(registro -> provincia.equalsIgnoreCase(registro.getOrigen().getProvincia()) && registro.getTotal() > totalMinimo)
+                .collect(Collectors.toList());
+    }
 }
